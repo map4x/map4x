@@ -21,23 +21,37 @@
 <img class="logo" height="40" src="lib/img/logo-min.png">
 <button id="undo" class="undo" type="button"></button>
 <button id="redo" class="redo" type="button" disabled></button>
-    
+<span class="razd"></span>
+<div class="dropdown">
+<button onclick="OpenasFunction()" class="dropbtnopn openas"></button>
+<div id="OpenasDropdown" class="dropdown-content">
+<div class="controlpad">
+<textarea id='textareaopen'></textarea>
+<button id='loadJson2Canvas'>Загрузить Json</button>
+</div>
+</div>
+</div>	
+	
 <div class="dropdown">
 <button onclick="SaveFunction()" class="dropbtn saveas"></button>
 <div id="SaveDropdown" class="dropdown-content">
             <a href="#" onclick="window.downloadSvg()">.SVG</a>
             <a href="#" onclick="DownloadPNG();">.PNG</a>
-            <a href="#" onclick="DownloadPDF();">.PDF</a>
-            <button id="canvas2svg">Canvas 2 SVG</button>
+			<div class="controlpad">
+			<button id='canvas2json'>Сохранить Json</button>
+			<br/>
+			<textarea id='textareasave'></textarea>
+			</div>
 </div>
 </div>
-    
+<span class="razd"></span> 
     <input class="draw" type="button" onclick="onStartDrawing();" />
     <input class="selection" type="button" onclick="onStopDrawing();" />
     <input class="circle" type="button" onclick="onSolidCircle();" />
     <input class="rect" type="button" onclick="onSolidRect();" />
+	<input id='create-line' class="line" type="button"/>
     <input id="create-polygon" class="polygon" type="button"/>
-    
+<span class="razd"></span> 
 <div class="dropdown">
 <button onclick="ControlFunction()" class="dropbtnctrl control"></button>
 <div id="ControlDropdown" class="dropdown-content">
@@ -49,14 +63,26 @@
 <label for="color">Цвет обводки:</label><br>
     <input id="stroke" type="color" style="width:40px" bind-value-to="stroke" class="btn-object-action"><br>
 <label for="opacity">Прозрачность:</label>
-    <input id="control_opacity" type ="range" min ="0" max="100" step ="1" value="100"/>
+    <input id="control_opacity" type="range" min="0" max="1" value="1" step="0.1"/>
     <br>
 <label for="stroke">Толщина обводки:</label>
     <input id="control_border" type ="range" min ="0" max="10" step ="1" value="0"/>
 </div>
 </div>
 </div>
-	
+
+<div class="dropdown">
+<button onclick="GroupFunction()" class="dropbtngrp group"></button>
+<div id="GroupDropdown" class="dropdown-content">
+<div class="controlpad">
+<button id="selall">Выбрать все</button>
+<button id="group">Сгруппировать</button>
+<button id="ungroup">Разгруппировать</button>
+<button id="des">Отменить выделение</button>
+</div>
+</div>
+</div>	
+<span class="razd"></span>	
 <input class="zoomin" type="button" onclick="onZoomIn();" />
 <input class="zoomout" type="button" onclick="onZoomOut();" />
 <input class="zoomreset" type="button" onclick="onResetZoom();" />
