@@ -44,6 +44,9 @@
 			</div>
 </div>
 </div>
+<span class="razd"></span>
+    <input class="copy" type="button" onclick="Copy();" />
+	<input class="paste" type="button" onclick="Paste();" />
 <span class="razd"></span> 
     <input class="draw" type="button" onclick="onStartDrawing();" />
     <input class="selection" type="button" onclick="onStopDrawing();" />
@@ -81,7 +84,8 @@
 <button id="des">Отменить выделение</button>
 </div>
 </div>
-</div>	
+</div>
+<span id="simple-menu" class="layers" onclick="location.href = '#sidr'" style="cursor:pointer"></span>
 <span class="razd"></span>	
 <input class="zoomin" type="button" onclick="onZoomIn();" />
 <input class="zoomout" type="button" onclick="onZoomOut();" />
@@ -99,12 +103,28 @@
 
 </div>
 </div>
+	
+<div id="sidr">
+<div class="sidr-wrapper">
+
+<div class="container">
+    <div class="row">
+<div class="span2">
+<ul id="containerLayers"></ul>
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
 
 <div id="canvas-wrapper">
     <canvas id="canvas"></canvas>
 </div>
 
-<script src="/lib/core.js"></script>
+<script src="lib/jquery.sidr.min.js"></script>
+<script src="lib/core.js"></script>
 
 <footer>  
 </footer>
