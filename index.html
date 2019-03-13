@@ -54,6 +54,44 @@
     <input class="rect" type="button" onclick="onSolidRect();" />
 	<input id='create-line' class="line" type="button"/>
     <input id="create-polygon" class="polygon" type="button"/>
+	<div class="dropdown">
+<button onclick="TextFunction()" class="dropbtntxt text"></button>
+<div id="TextDropdown" class="dropdown-content">
+<div class="controlpad">
+<button id="add" type="button">Добавить</button>
+<!--text parameters-->
+<textarea id="text-cont"></textarea>
+<select class="select2 font-change" data-type="fontFamily">
+  <option value="Arial">Arial</option>
+  <option value="Arial Black">Arial Black</option>
+  <option value="Impact">Impact</option>
+  <option value="Tahoma">Tahoma</option>
+  <option value="Times New Roman">Times New Roman</option>
+</select>
+<select class="select2 font-change" data-type="fontSize">
+  <option value="10">10</option>
+  <option value="12">12</option>
+  <option value="14">14</option>
+  <option value="16">16</option>
+  <option value="18">18</option>
+  <option value="20">20</option>
+  <option value="24">24</option>
+  <option value="32">32</option>
+</select>
+<select class="select2 font-change" data-type="color">
+  <option value="#000">#000</option>
+  <option value="#00f">#00f</option>
+  <option value="#0f0">#0f0</option>
+  <option value="#f00">#f00</option>
+</select>
+<select class="select2 font-change" data-type="textAlign">
+  <option value="left">left</option>
+  <option value="center">center</option>
+  <option value="right">right</option>
+</select>
+</div>
+</div>
+</div>
 <span class="razd"></span> 
 <div class="dropdown">
 <button onclick="ControlFunction()" class="dropbtnctrl control"></button>
@@ -85,7 +123,7 @@
 </div>
 </div>
 </div>
-<span id="simple-menu" class="layers" onclick="location.href = '#sidr'" style="cursor:pointer"></span>
+<span id="simple-menu" class="layers" onclick="location.href = '#menu'" style="cursor:pointer"></span>
 <span class="razd"></span>	
 <input class="zoomin" type="button" onclick="onZoomIn();" />
 <input class="zoomout" type="button" onclick="onZoomOut();" />
@@ -106,7 +144,10 @@
 	
 <div id="sidr">
 <div class="sidr-wrapper">
-
+<div class="button-wrapper">
+<button class="lock" type="button" onclick="stopDrag();">Заблокировать</button>
+<button class="lock" type="button" onclick="startDrag();">Разблокировать</button>
+</div>
 <div class="container">
     <div class="row">
 <div class="span2">
