@@ -19,11 +19,11 @@
 <div class="hmenu">
 <div class="hmenul">
 <img class="logo" height="40" src="lib/img/logo-min.png">
-<button id="undo" class="undo" type="button"></button>
-<button id="redo" class="redo" type="button" disabled></button>
+<button id="undo" data-title="Назад" class="undo" type="button"></button>
+<button id="redo" data-title="Вперед" class="redo" type="button" disabled></button>
 <span class="razd"></span>
 <div class="dropdown">
-<button onclick="OpenasFunction()" class="dropbtnopn openas"></button>
+<button id="openas" onclick="OpenasFunction()" data-title="Открыть" class="dropbtnopn openas"></button>
 <div id="OpenasDropdown" class="dropdown-content">
 <div class="controlpad">
 <textarea id='textareaopen'></textarea>
@@ -33,7 +33,7 @@
 </div>	
 	
 <div class="dropdown">
-<button onclick="SaveFunction()" class="dropbtn saveas"></button>
+<button id="saveas" onclick="SaveFunction()" data-title="Сохранить" class="dropbtn saveas"></button>
 <div id="SaveDropdown" class="dropdown-content">
             <a href="#" onclick="window.downloadSvg()">.SVG</a>
             <a href="#" onclick="DownloadPNG();">.PNG</a>
@@ -45,17 +45,33 @@
 </div>
 </div>
 <span class="razd"></span>
+	<span id="input-copy" class="input-copy" data-title="Копировать">
     <input class="copy" type="button" onclick="Copy();" />
+	</span>
+	<span id="input-paste" class="input-paste" data-title="Вставить">
 	<input class="paste" type="button" onclick="Paste();" />
-<span class="razd"></span> 
+	</span>
+<span class="razd"></span>
+	<span id="input-draw" class="input-draw" data-title="Рисовать">
     <input class="draw" type="button" onclick="onStartDrawing();" />
+	</span>
+	<span id="input-selection" class="input-selection" class="input-selection" data-title="Выделить">
     <input class="selection" type="button" onclick="onStopDrawing();" />
+	</span>
+	<span id="input-circle" class="input-circle" data-title="Круг">
     <input class="circle" type="button" onclick="onSolidCircle();" />
+	</span>
+	<span id="input-rect" class="input-rect" data-title="Прямоугольник">
     <input class="rect" type="button" onclick="onSolidRect();" />
+	</span>
+	<span id="input-line" class="input-line" data-title="Рисование линиями">
 	<input id='create-line' class="line" type="button"/>
+	</span>
+	<span id="input-polygon" class="input-polygon" data-title="Создание полигонов">
     <input id="create-polygon" class="polygon" type="button"/>
+	</span>
 	<div class="dropdown">
-<button onclick="TextFunction()" class="dropbtntxt text"></button>
+<button id="text" onclick="TextFunction()" data-title="Текст" class="dropbtntxt text"></button>
 <div id="TextDropdown" class="dropdown-content">
 <div class="controlpad">
 <button id="add" type="button">Добавить</button>
@@ -94,7 +110,7 @@
 </div>
 <span class="razd"></span> 
 <div class="dropdown">
-<button onclick="ControlFunction()" class="dropbtnctrl control"></button>
+<button id="control" onclick="ControlFunction()" data-title="Настройки" class="dropbtnctrl control"></button>
 <div id="ControlDropdown" class="dropdown-content">
 <div class="controlpad">
 <label for="color">Основной цвет:</label>
@@ -113,7 +129,7 @@
 </div>
 
 <div class="dropdown">
-<button onclick="GroupFunction()" class="dropbtngrp group"></button>
+<button id="group" onclick="GroupFunction()" data-title="Группы" class="dropbtngrp group"></button>
 <div id="GroupDropdown" class="dropdown-content">
 <div class="controlpad">
 <button id="selall">Выбрать все</button>
@@ -123,15 +139,24 @@
 </div>
 </div>
 </div>
+<span id="input-layers" class="input-layers" data-title="Слои">
 <input id="simple-menu" class="layers" onclick="location.href = '#menu'" style="cursor:pointer" type="button">
-<span class="razd"></span>	
+</span>
+<span class="razd"></span>
+<span id="input-zoomin" class="input-zoomin" data-title="Приблизить">
 <input class="zoomin" type="button" onclick="onZoomIn();" />
+</span>
+<span id="input-zoomout" class="input-zoomout" data-title="Отдалить">
 <input class="zoomout" type="button" onclick="onZoomOut();" />
+</span>
+<span id="input-zoomreset" class="input-zoomreset" data-title="Исходный масштаб">
 <input class="zoomreset" type="button" onclick="onResetZoom();" />
+</span>
 	
 </div>
 
 <div class="hmenur">
+<button id="switcher" class="help" type="button" onclick="RemoveHelp();">Подсказки: Выкл</button>
 <button class="clear" type="button" onclick="cc();">Стереть</button>
 <div class="upload-btn-wrapper">
 <button class="btn">Загрузить карту</button>
