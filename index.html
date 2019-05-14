@@ -7,7 +7,7 @@
 <link href="css/style.css" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-<script src="lib/jquery-2.1.1.min.js"></script>
+<script src="lib/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="lib/fabric.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
 <script src="lib/jquery-ui.min.js"></script>
@@ -26,8 +26,11 @@
 <button id="openas" onclick="OpenasFunction()" data-title="Открыть" class="dropbtnopn openas"></button>
 <div id="OpenasDropdown" class="dropdown-content">
 <div class="controlpad">
+Открыть JSON (в виде кода)<br>
 <textarea id='textareaopen'></textarea>
-<button id='loadJson2Canvas'>Загрузить Json</button>
+<button id='loadJson2Canvas'>Загрузить JSON (код)</button>
+<br><br>Открыть JSON (.txt)
+<input type="file" id="jsonload" />
 </div>
 </div>
 </div>	
@@ -35,12 +38,15 @@
 <div class="dropdown">
 <button id="saveas" onclick="SaveFunction()" data-title="Сохранить" class="dropbtn saveas"></button>
 <div id="SaveDropdown" class="dropdown-content">
-            <a href="#" onclick="window.downloadSvg()">.SVG</a>
-            <a href="#" onclick="DownloadPNG();">.PNG</a>
+            <a href="#" onclick="window.downloadSvg()" class="an">.SVG</a>
+            <a href="#" onclick="DownloadPNG();" class="an">.PNG</a>
+			<a><button id="print" class="btnsave" class="an">.PDF</button></a>
+			<a><button id="canvas2json2" class="btnsave">.TXT</button></a>
+			<a><button id='canvas2json' class="btnsave">Сохранить JSON в виде кода</button></a>
 			<div class="controlpad">
-			<button id='canvas2json'>Сохранить Json</button>
-			<br/>
 			<textarea id='textareasave'></textarea>
+			<!-- <br> JSON Generated on Save:<br>
+<textarea id='myTextArea' onfocus="this.select();" onmouseup="return false;"></textarea> -->
 			</div>
 </div>
 </div>
@@ -133,13 +139,13 @@
 <div id="GroupDropdown" class="dropdown-content">
 <div class="controlpad">
 <button id="selall">Выбрать все</button>
-<button id="group">Сгруппировать</button>
+<button id="group1">Сгруппировать</button>
 <button id="ungroup">Разгруппировать</button>
 <button id="des">Отменить выделение</button>
 </div>
 </div>
 </div>
-<span id="input-layers" class="input-layers" data-title="Слои">
+<span id="input-layers" class="input-layers" data-title="Слои (BETA)">
 <input id="simple-menu" class="layers" onclick="location.href = '#menu'" style="cursor:pointer" type="button">
 </span>
 <span class="razd"></span>
@@ -188,7 +194,7 @@
 <div id="canvas-wrapper">
     <canvas id="canvas"></canvas>
 </div>
-
+<a id="downloader"></a>
 <script src="lib/jquery.sidr.min.js"></script>
 <script src="lib/core.js"></script>
 
